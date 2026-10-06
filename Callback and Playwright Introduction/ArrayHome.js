@@ -1,0 +1,16 @@
+let browsers = ["Chrome", "Firefox", "Edge"];
+browsers.push("Safari");
+console.log("After push:", browsers);
+browsers.pop();
+console.log("After pop:", browsers);
+browsers.shift();
+console.log("After shift:", browsers);
+browsers.unshift("Chrome");
+console.log("After unshift:", browsers);
+console.log("Includes Firefox:", browsers.includes("Firefox"));
+console.log("Index of Edge:", browsers.indexOf("Edge"));
+console.log("Array as string:", browsers.join(", "));
+browsers.reverse();
+console.log("After reverse:", browsers);
+browsers.sort();
+console.log("After sort:", browsers);
