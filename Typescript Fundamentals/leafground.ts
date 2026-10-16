@@ -24,13 +24,13 @@ async function checkboxAssignment() {
     await expect(notificationMessage).toHaveText("Unchecked");
     console.log("Notification message 'Unchecked' is displayed");
     // 5. Select favorite language - Java
-    const favoriteLanguage = page.locator("label[for='j_idt87:basic:0']");
-    await favoriteLanguage.click();
+    const javaCheckbox = page.locator("label[for='j_idt87:basic:0']");
+    await javaCheckbox.click();
     await expect(page.locator("input#j_idt87\\:basic\\:0")).toBeChecked();
     console.log("Favorite language Java is selected");
     // Select Python
-    const favoriteLanguage1 = page.locator("label[for='j_idt87:basic:1']");
-    await favoriteLanguage1.click();
+    const pythonCheckbox = page.locator("label[for='j_idt87:basic:1']");
+    await pythonCheckbox.click();
     await expect(page.locator("input#j_idt87\\:basic\\:1")).toBeChecked();
     console.log("Favorite language Python is selected");
     // 6. Click Tri-State Checkbox
@@ -38,12 +38,11 @@ async function checkboxAssignment() {
     await triStateCheckbox.click();
     console.log("Tri-State Checkbox clicked");
     // 7. Verify Tri-State Checkbox selected option
-    const triStateMessage = page.locator("//p[contains(text(),'State =')]");;
+    const triStateMessage = page.locator("//p[contains(text(),'State =')]");
     const selectedState = await triStateMessage.textContent();
     console.log("Selected Tri-State option:",selectedState);
     // 8. Click Toggle Switch
     const toggleSwitch = page.locator("div.ui-toggleswitch-slider");
-    const toggleInput = page.locator("input#j_idt87\\:j_idt100_input");
     await toggleSwitch.click();
     console.log("Toggle Switch clicked");
     // 9. Verify expected message - Error need to verify
@@ -62,7 +61,8 @@ async function checkboxAssignment() {
     // 11. Select multiple options
     const selectMultiple = page.locator("#j_idt87\\:multiple");
     await selectMultiple.click();
-    for (const city of ["Miami", "London", "Paris"]) {
+    for (const city of ["Miami", "London", "Paris"]) 
+        {
     const option = page.locator(`li[data-item-value='${city}']`);
     await option.locator(".ui-chkbox-box").click();
     await expect(option.locator("input[type='checkbox']")).toHaveAttribute("aria-checked", "true");
@@ -78,5 +78,6 @@ async function checkboxAssignment() {
     await browser.close();
     console.log("Browser closed successfully");
 }
+checkboxAssignment();
 
 checkboxAssignment();
