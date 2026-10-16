@@ -1,7 +1,7 @@
 const browser = "Chrome";
 function getBrowserVersion() {
     let browserVersion = "Chrome Version 140";
-    if (browser === "Firefox") {
+    if (browser === "Chrome") {
         console.log("Browser is Chrome");
     }
     else {
